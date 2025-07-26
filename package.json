@@ -4,7 +4,7 @@
   "description": "Riichi Rating Telegram Bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "npx tsc && node ./dist/index.js"
   },
   "keywords": [
     "bot",
