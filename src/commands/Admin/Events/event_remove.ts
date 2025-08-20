@@ -1,8 +1,8 @@
 import { Command, CommandContext } from "telegram-button-menu/command";
 
-export default class Club_Remove extends Command {
+export default class Event_Remove extends Command {
     public get name(): string {
-        return "delete_club";
+        return "delete_event";
     }
 
     async execute(commandContext: CommandContext): Promise<void> {

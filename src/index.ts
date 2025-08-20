@@ -12,6 +12,8 @@ import { Achievement_Add, Achievement_Grant } from "./commands/Admin/Achievement
 import { Club_Create, Club_Edit, Club_Remove, Club_View} from "./commands/Admin/Clubs/club_export";
 import { Game_Remove, Game_View } from "./commands/Admin/Games/game_export";
 import {  User_Activate, User_Remove } from "./commands/Admin/Users/user_export";
+import { Event_Add, Event_Edit, Event_List, Event_Remove } from "./commands/Admin/Events/event_export";
+
 
 import { MENU_STRUCTURE } from "./menu";
 
@@ -38,6 +40,10 @@ commandManager.register(new Achievement_Grant());
 commandManager.register(new Account_Edit());
 commandManager.register(new Account_Register());
 commandManager.register(new Account_View());
+commandManager.register(new Event_Add());
+commandManager.register(new Event_Edit());
+commandManager.register(new Event_List());
+commandManager.register(new Event_Remove());
 
 menuManager.setMenuStructure(MENU_STRUCTURE);
 setupMenu(bot);
@@ -46,6 +52,7 @@ bot.start((ctx) => menuManager.displayMenu(ctx, "main_menu"));
 
 bot.command("add", async (ctx) => {
   const text = ctx.message.text || "";
+  
   const lines = text.split("\n");
 
   if (lines.length !== 5 || !lines[0].toLowerCase().startsWith("/add")) {
@@ -136,8 +143,21 @@ players_data.push({
   }
 });
 
+// // TEST
+
+// bot.command("test", async(ctx) => { 
+//   const entities = ctx.message.entities || [];
+//   for (const e of entities) {
+//     if (e.type === 'text_mention' && e.user) {
+//       console.log(`Mentioned user: ${e.user.username} — ${e.user.id}`);
+//     }
+//   }
+// })
+
 bot.launch(() => {
   console.log("Bot is running...");
 }).catch((error) => {
   console.error("Failed to launch bot:", error);
 });
+
+export default bot;

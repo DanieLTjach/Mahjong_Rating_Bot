@@ -98,6 +98,33 @@ export const MENU_STRUCTURE: MenuItem = {
                     ]
                 },
                 {
+                    key: "Events",
+                    icon: "📅",
+                    command: "Events",
+                    children: [
+                        {
+                            key: "Create Event",
+                            icon: "➕",
+                            command: "create_event"
+                        },
+                        {
+                            key: "Edit Event",
+                            icon: "✏️",
+                            command: "edit_event"
+                        },
+                        {
+                            key: "View Events",
+                            icon: "👁️",
+                            command: "view_events"
+                        },
+                        {
+                            key: "Delete Event",
+                            icon: "🗑️",
+                            command: "delete_event"
+                        }
+                    ]
+                },
+                {
                     key: "Games",
                     icon: "🎮",
                     command: "Games",
